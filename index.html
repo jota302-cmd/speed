@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¿Qué tan rápido vuela mi Internet? - OptiMicroTools</title>
-    <meta name="description" content="Mide la velocidad de tu conexión a Internet de forma instantánea, privada y con estilo Dark Luxury.">
-    
+    <meta name="description"
+        content="Mide la velocidad de tu conexión a Internet de forma instantánea, privada y con estilo Dark Luxury.">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    
+
     <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8167884438770174" crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8167884438770174"
+        crossorigin="anonymous"></script>
 
     <style>
         :root {
@@ -23,6 +26,7 @@
             --text-secondary: #94A3B8;
             --glass-bg: rgba(255, 255, 255, 0.03);
             --glass-border: rgba(255, 255, 255, 0.1);
+            --luxury-blur: blur(12px);
         }
 
         * {
@@ -43,24 +47,28 @@
 
         /* Header Styles */
         header {
-            padding: 1.5rem;
+            padding: 1rem 1.5rem;
             display: flex;
             justify-content: center;
             align-items: center;
             border-bottom: 1px solid var(--glass-border);
-            backdrop-filter: blur(10px);
+            backdrop-filter: var(--luxury-blur);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.8);
         }
 
         .logo {
             text-decoration: none;
             color: var(--text-primary);
             font-weight: 800;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             letter-spacing: -0.05em;
-            transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .logo span {
@@ -68,7 +76,8 @@
         }
 
         .logo:hover {
-            opacity: 0.8;
+            opacity: 0.9;
+            transform: scale(1.02);
         }
 
         /* Main Layout */
@@ -136,7 +145,8 @@
             stroke: var(--accent-color);
             stroke-width: 8;
             stroke-linecap: round;
-            stroke-dasharray: 691; /* 2 * PI * r */
+            stroke-dasharray: 691;
+            /* 2 * PI * r */
             stroke-dashoffset: 691;
             transition: stroke-dashoffset 0.5s ease-out;
             filter: drop-shadow(0 0 8px var(--accent-glow));
@@ -240,25 +250,46 @@
 
         /* Footer */
         footer {
-            padding: 2rem 1.5rem;
+            padding: 3rem 1.5rem;
             text-align: center;
             border-top: 1px solid var(--glass-border);
             color: var(--text-secondary);
             font-size: 0.9rem;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.85rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
         }
 
         .support-link {
             color: var(--accent-color);
             text-decoration: none;
             font-weight: 600;
-            margin-top: 1rem;
-            display: inline-block;
             transition: opacity 0.3s;
+            border: 1px solid var(--accent-color);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
         }
 
         .support-link:hover {
-            opacity: 0.8;
-            text-decoration: underline;
+            background: var(--accent-color);
+            color: var(--bg-color);
         }
 
         /* Language Toggle */
@@ -290,17 +321,20 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
             display: none;
             justify-content: center;
             align-items: center;
             z-index: 2000;
             padding: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .modal.active {
             display: flex;
+            opacity: 1;
         }
 
         .modal-content {
@@ -357,28 +391,27 @@
             .speed-value {
                 font-size: 3rem;
             }
+
             .metrics-grid {
                 grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
+
 <body>
 
     <button id="langToggle" class="lang-toggle" onclick="toggleLanguage()">EN</button>
 
     <header>
-        <a href="https://optimicrotools.com" class="logo">OptiMicro<span>Tools</span></a>
+        <a href="https://optimicrotools.com" class="logo"
+            title="Go to Home / Ir al Inicio">OptiMicro<span>Tools</span></a>
     </header>
 
     <main>
         <div class="ad-slot">
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-8167884438770174"
-                 data-ad-slot="header-ad"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8167884438770174"
+                data-ad-slot="header-ad" data-ad-format="auto" data-full-width-responsive="true"></ins>
             <span>Ad Space</span>
         </div>
 
@@ -412,20 +445,69 @@
         </section>
 
         <div class="ad-slot">
-             <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-8167884438770174"
-                 data-ad-slot="footer-ad"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8167884438770174"
+                data-ad-slot="footer-ad" data-ad-format="auto" data-full-width-responsive="true"></ins>
             <span>Ad Space</span>
         </div>
     </main>
 
     <footer>
+        <div class="footer-links">
+            <a href="#" onclick="openModal(event, 'termsModal')" id="linkTerms">Terms</a>
+            <a href="#" onclick="openModal(event, 'privacyModal')" id="linkPrivacy">Privacy</a>
+            <a href="#" onclick="openModal(event, 'contactModal')" id="linkContact">Contact</a>
+            <a href="#" onclick="openModal(event, 'supportModal')" class="support-link" id="linkSupport">Support
+                Project</a>
+        </div>
         <p>© 2026 OptiMicroTools. High Performance Tools.</p>
-        <a href="#" class="support-link" onclick="openSupportModal(event)">Support Project</a>
     </footer>
+
+    <!-- Legal Modals -->
+    <div id="termsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="termsTitle">Terms of Service</h2>
+                <span class="close-modal" onclick="closeModal('termsModal')">&times;</span>
+            </div>
+            <div id="termsBody" style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+                This tool is provided "as is". We are not responsible for measurement variations caused by local network
+                conditions or hardware limitations.
+            </div>
+        </div>
+    </div>
+
+    <div id="privacyModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="privacyTitle">Privacy Policy</h2>
+                <span class="close-modal" onclick="closeModal('privacyModal')">&times;</span>
+            </div>
+            <div id="privacyBody" style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+                Total Privacy. We do not store, track, or share your speed tests or connection data. All operations
+                happen in your browser.
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="contactTitle">Contact Official</h2>
+                <span class="close-modal" onclick="closeModal('contactModal')">&times;</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <a href="https://x.com/optimicrotools" target="_blank" class="support-option">
+                    <span>X (Twitter)</span>
+                    <span>𝕏</span>
+                </a>
+                <a href="mailto:jota302@gmail.com" class="support-option">
+                    <span>Email</span>
+                    <span>✉️</span>
+                </a>
+            </div>
+        </div>
+    </div>
 
     <!-- Support Modal -->
     <div id="supportModal" class="modal">
@@ -435,21 +517,22 @@
                 <span class="close-modal" onclick="closeSupportModal()">&times;</span>
             </div>
             <p id="supportDesc">Ayuda a mantener estas herramientas gratis y sin publicidad intrusiva.</p>
-            
+
             <a href="https://www.buymeacoffee.com/jota302" target="_blank" class="support-option">
                 <span>Buy Me a Coffee</span>
                 <span>☕</span>
             </a>
-            
+
             <a href="https://paypal.me/jota302" target="_blank" class="support-option">
                 <span>PayPal</span>
                 <span>💳</span>
             </a>
-            
+
             <div class="support-option">
                 <div>
                     <span>USDT (TRC20)</span><br>
-                    <small style="font-size: 0.6rem; color: var(--text-secondary)">TE95Gtd8qTWnsEcqXxDEoQoKLNg2hMvVtV</small>
+                    <small
+                        style="font-size: 0.6rem; color: var(--text-secondary)">TE95Gtd8qTWnsEcqXxDEoQoKLNg2hMvVtV</small>
                 </div>
                 <span class="crypto-copy" onclick="copyCrypto()">Copy</span>
             </div>
@@ -468,10 +551,19 @@
                 idle: "Listo",
                 testing: "Probando...",
                 error: "Red Inestable",
-                privacy: "Privacidad: No registramos tu ubicación ni historial.",
+                privacyHint: "Privacidad: No registramos tu ubicación ni historial.",
                 supportTitle: "Soportar Proyecto",
                 supportDesc: "Ayuda a mantener estas herramientas gratis y sin publicidad intrusiva.",
-                copied: "Copiado!"
+                copied: "Copiado!",
+                linkTerms: "Términos",
+                linkPrivacy: "Privacidad",
+                linkContact: "Contacto",
+                linkSupport: "Soportar Proyecto",
+                termsTitle: "Términos de Servicio",
+                termsBody: "Esta herramienta se proporciona \"tal cual\". No somos responsables de las variaciones en las mediciones causadas por las condiciones de la red local o las limitaciones del hardware.",
+                privacyTitle: "Política de Privacidad",
+                privacyBody: "Privacidad Total. No almacenamos, rastreamos ni compartimos sus pruebas de velocidad ni sus datos de conexión. Todas las operaciones ocurren en su navegador.",
+                contactTitle: "Contacto Oficial"
             },
             en: {
                 start: "Start Test",
@@ -482,14 +574,23 @@
                 idle: "Ready",
                 testing: "Testing...",
                 error: "Unstable Network",
-                privacy: "Privacy: We do not record your location or history.",
+                privacyHint: "Privacy: We do not record your location or history.",
                 supportTitle: "Support Project",
                 supportDesc: "Help keep these tools free and without intrusive ads.",
-                copied: "Copied!"
+                copied: "Copied!",
+                linkTerms: "Terms",
+                linkPrivacy: "Privacy",
+                linkContact: "Contact",
+                linkSupport: "Support Project",
+                termsTitle: "Terms of Service",
+                termsBody: "This tool is provided \"as is\". We are not responsible for measurement variations caused by local network conditions or hardware limitations.",
+                privacyTitle: "Privacy Policy",
+                privacyBody: "Total Privacy. We do not store, track, or share your speed tests or connection data. All operations happen in your browser.",
+                contactTitle: "Contact Official"
             }
         };
 
-        let currentLang = 'es';
+        let currentLang = localStorage.getItem('opti_lang') || 'es';
         const progressCircle = document.getElementById('progressCircle');
         const speedDisplay = document.getElementById('speedValue');
         const startBtn = document.getElementById('startBtn');
@@ -498,6 +599,7 @@
 
         function toggleLanguage() {
             currentLang = currentLang === 'es' ? 'en' : 'es';
+            localStorage.setItem('opti_lang', currentLang);
             document.getElementById('langToggle').innerText = currentLang.toUpperCase();
             updateUIStrings();
         }
@@ -508,10 +610,25 @@
             document.getElementById('pingLabel').innerText = t.latency;
             document.getElementById('statusLabel').innerText = t.status;
             document.getElementById('statusValue').innerText = t.idle;
-            document.getElementById('privacyHint').innerText = t.privacy;
+            document.getElementById('privacyHint').innerText = t.privacyHint;
+
+            // Modals & Links
             document.getElementById('supportTitle').innerText = t.supportTitle;
             document.getElementById('supportDesc').innerText = t.supportDesc;
+            document.getElementById('linkTerms').innerText = t.linkTerms;
+            document.getElementById('linkPrivacy').innerText = t.linkPrivacy;
+            document.getElementById('linkContact').innerText = t.linkContact;
+            document.getElementById('linkSupport').innerText = t.linkSupport;
+            document.getElementById('termsTitle').innerText = t.termsTitle;
+            document.getElementById('termsBody').innerText = t.termsBody;
+            document.getElementById('privacyTitle').innerText = t.privacyTitle;
+            document.getElementById('privacyBody').innerText = t.privacyBody;
+            document.getElementById('contactTitle').innerText = t.contactTitle;
         }
+
+        // Initialize UI
+        document.getElementById('langToggle').innerText = currentLang.toUpperCase();
+        updateUIStrings();
 
         // UI Helpers
         function setProgress(percent) {
@@ -520,21 +637,29 @@
             progressCircle.style.strokeDashoffset = offset;
         }
 
-        function openSupportModal(e) {
-            e.preventDefault();
-            document.getElementById('supportModal').classList.add('active');
+        function openModal(e, id) {
+            if (e) e.preventDefault();
+            const modal = document.getElementById(id);
+            modal.style.display = 'flex';
+            setTimeout(() => modal.classList.add('active'), 10);
         }
 
-        function closeSupportModal() {
-            document.getElementById('supportModal').classList.remove('active');
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            modal.classList.remove('active');
+            setTimeout(() => modal.style.display = 'none', 300);
         }
 
         function copyCrypto() {
-            navigator.clipboard.writeText('TE95Gtd8qTWnsEcqXxDEoQoKLNg2hMvVtV');
-            const copyBtn = document.querySelector('.crypto-copy');
-            const originalText = copyBtn.innerText;
-            copyBtn.innerText = translations[currentLang].copied;
-            setTimeout(() => copyBtn.innerText = originalText, 2000);
+            try {
+                navigator.clipboard.writeText('TE95Gtd8qTWnsEcqXxDEoQoKLNg2hMvVtV');
+                const copyBtn = document.querySelector('.crypto-copy');
+                const originalText = copyBtn.innerText;
+                copyBtn.innerText = translations[currentLang].copied;
+                setTimeout(() => copyBtn.innerText = originalText, 2000);
+            } catch (err) {
+                console.error('Failed to copy crypto address', err);
+            }
         }
 
         // Core Test Logic
@@ -551,7 +676,6 @@
                 pingDisplay.innerText = `${ping} ms`;
 
                 // 2. Download Speed Test
-                // Using a relative size/time calculation with a small chunk
                 await measureDownload();
 
             } catch (error) {
@@ -569,59 +693,54 @@
 
         async function measurePing() {
             const start = performance.now();
-            // Tiny request to measure RTT
             await fetch('https://www.google.com/favicon.ico', { mode: 'no-cors', cache: 'no-store' });
             const end = performance.now();
             return Math.round(end - start);
         }
 
         async function measureDownload() {
-            // Placeholder for CDN file - Using a reliable large file endpoint for simulation
-            // In real production, use a dedicated micro-service or a known small image on CDN
             const testUrl = 'https://upload.wikimedia.org/wikipedia/commons/3/3f/Fronalpstock_big.jpg'; // ~15MB
             const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 10000); // 10s timeout
+            const timeoutId = setTimeout(() => controller.abort(), 10000);
 
             const startTime = performance.now();
             try {
                 const response = await fetch(testUrl, { cache: 'no-store', signal: controller.signal });
                 const reader = response.body.getReader();
                 let loaded = 0;
-                
-                // Content length might not be available
-                const total = 15 * 1024 * 1024; // Estimation for progress UI if unavailable
 
-                while(true) {
-                    const {done, value} = await reader.read();
+                while (true) {
+                    const { done, value } = await reader.read();
                     if (done) break;
                     loaded += value.length;
-                    
+
                     const currentTime = performance.now();
                     const durationInSeconds = (currentTime - startTime) / 1000;
                     const speedMbps = ((loaded * 8) / (1024 * 1024) / durationInSeconds).toFixed(1);
-                    
+
                     speedDisplay.innerText = speedMbps;
-                    setProgress(Math.min((speedMbps / 100) * 100, 100)); // Cap gauge at 100 Mbps for visual
+                    setProgress(Math.min((speedMbps / 100) * 100, 100));
                 }
-                
+
                 clearTimeout(timeoutId);
             } catch (e) {
                 if (e.name === 'AbortError') {
                     throw new Error('Timeout');
                 }
                 throw e;
-            } finally {
-                // Memory Cleanup: Explicitly nullify large objects
-                // In JS, variables inside functions are GC'd, but we can help by clearing references
-                window.gc && window.gc(); 
             }
         }
 
         // Close modal on ESC
         window.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeSupportModal();
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal.active').forEach(modal => {
+                    closeModal(modal.id);
+                });
+            }
         });
 
     </script>
 </body>
+
 </html>
