@@ -449,6 +449,74 @@
                 data-ad-slot="footer-ad" data-ad-format="auto" data-full-width-responsive="true"></ins>
             <span>Ad Space</span>
         </div>
+
+        <!-- Technical Insights Section -->
+        <section id="about-tool" class="speed-container"
+            style="padding: 2rem; gap: 1.5rem; text-align: left; align-items: flex-start;">
+            <h2 id="aboutTitle" style="color: var(--accent-color); font-size: 1.5rem; font-weight: 700;">Technical
+                Insights: How Speed Test Works</h2>
+
+            <p id="aboutDesc" style="color: var(--text-secondary); line-height: 1.6; font-size: 0.95rem;">
+                Our Speed Test tool provides a high-precision measurement of your network throughput using real-time
+                packet analysis.
+                By downloading a non-cacheable binary payload from high-bandwidth distributed nodes, we calculate the
+                effective
+                bitrate of your connection, accounting for network jitter and latency fluctuations. This ensures an
+                accurate
+                snapshot of your real-world performance for streaming, gaming, and professional workflows.
+            </p>
+
+            <div style="width: 100%;">
+                <h3 id="guideTitle" style="color: var(--text-primary); font-size: 1.1rem; margin-bottom: 1rem;">Quick
+                    Usage Guide</h3>
+                <ul id="guideList"
+                    style="color: var(--text-secondary); font-size: 0.9rem; list-style: none; display: flex; flex-direction: column; gap: 0.75rem;">
+                    <li style="display: flex; gap: 0.5rem;"><span
+                            style="color: var(--accent-color); font-weight: bold;">Step 1:</span> Click 'Start Test' to
+                        initiate the synchronization handshake.</li>
+                    <li style="display: flex; gap: 0.5rem;"><span
+                            style="color: var(--accent-color); font-weight: bold;">Step 2:</span> Wait for the
+                        multi-threaded download sequence to stabilize.</li>
+                    <li style="display: flex; gap: 0.5rem;"><span
+                            style="color: var(--accent-color); font-weight: bold;">Step 3:</span> Review your peak Mbps
+                        and latency results instantly.</li>
+                </ul>
+            </div>
+
+            <div
+                style="background: rgba(6, 182, 212, 0.05); border-left: 3px solid var(--accent-color); padding: 1rem; border-radius: 4px; width: 100%;">
+                <h3 id="privacyTitleTech" style="color: var(--text-primary); font-size: 1rem; margin-bottom: 0.5rem;">
+                    Security & Privacy</h3>
+                <p id="privacyBodyTech" style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.5;">
+                    This tool utilizes <strong>Client-Side Processing (JavaScript/WASM)</strong>. All telemetry and
+                    speed calculations
+                    are performed directly in your browser. No connection data, IP addresses, or location history are
+                    ever
+                    transmitted or stored on external servers.
+                </p>
+            </div>
+
+            <div style="width: 100%;">
+                <h3 id="faqTitle" style="color: var(--text-primary); font-size: 1.1rem; margin-bottom: 1rem;">Frequently
+                    Asked Questions</h3>
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                    <div>
+                        <h4 id="faqQ1" style="color: var(--accent-color); font-size: 0.9rem; margin-bottom: 0.25rem;">
+                            Why is my speed different from other tests?</h4>
+                        <p id="faqA1" style="color: var(--text-secondary); font-size: 0.85rem;">Measurement varies based
+                            on server proximity, network congestion, and the protocol used. We prioritize raw throughput
+                            accuracy.</p>
+                    </div>
+                    <div>
+                        <h4 id="faqQ2" style="color: var(--accent-color); font-size: 0.9rem; margin-bottom: 0.25rem;">Is
+                            this tool mobile-friendly?</h4>
+                        <p id="faqA2" style="color: var(--text-secondary); font-size: 0.85rem;">Yes, the architecture is
+                            fully responsive and optimized for low-latency testing on high-performance mobile devices.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -514,17 +582,17 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h2 id="supportTitle">Support Project</h2>
-                <span class="close-modal" onclick="closeSupportModal()">&times;</span>
+                <span class="close-modal" onclick="closeModal('supportModal')">&times;</span>
             </div>
             <p id="supportDesc">Ayuda a mantener estas herramientas gratis y sin publicidad intrusiva.</p>
 
             <a href="https://www.buymeacoffee.com/jota302" target="_blank" class="support-option">
-                <span>Buy Me a Coffee</span>
+                <span>Buy Me a Coffee (jota302)</span>
                 <span>☕</span>
             </a>
 
             <a href="https://paypal.me/jota302" target="_blank" class="support-option">
-                <span>PayPal</span>
+                <span>PayPal (jota302)</span>
                 <span>💳</span>
             </a>
 
@@ -563,7 +631,20 @@
                 termsBody: "Esta herramienta se proporciona \"tal cual\". No somos responsables de las variaciones en las mediciones causadas por las condiciones de la red local o las limitaciones del hardware.",
                 privacyTitle: "Política de Privacidad",
                 privacyBody: "Privacidad Total. No almacenamos, rastreamos ni compartimos sus pruebas de velocidad ni sus datos de conexión. Todas las operaciones ocurren en su navegador.",
-                contactTitle: "Contacto Oficial"
+                contactTitle: "Contacto Oficial",
+                aboutTitle: "Información Técnica: Cómo Funciona el Test de Velocidad",
+                aboutDesc: "Nuestra herramienta de Test de Velocidad proporciona una medición de alta precisión de su rendimiento de red mediante el análisis de paquetes en tiempo real. Al descargar una carga binaria no almacenable en caché desde nodos distribuidos de alto ancho de banda, calculamos la tasa de bits efectiva de su conexión, teniendo en cuenta el jitter y las fluctuaciones de latencia.",
+                guideTitle: "Guía Rápida de Uso",
+                guideStep1: "Paso 1: Haga clic en 'Iniciar Prueba' para iniciar el protocolo de sincronización.",
+                guideStep2: "Paso 2: Espere a que la secuencia de descarga multihilo se estabilice.",
+                guideStep3: "Paso 3: Revise su Mbps pico y resultados de latencia al instante.",
+                privacyTitleTech: "Seguridad y Privacidad",
+                privacyBodyTech: "Esta herramienta utiliza Procesamiento del Lado del Cliente (JavaScript/WASM). Todos los cálculos de telemetría y velocidad se realizan directamente en su navegador. No se envían ni almacenan datos.",
+                faqTitle: "Preguntas Frecuentes",
+                faqQ1: "¿Por qué mi velocidad varía entre pruebas?",
+                faqA1: "La medición varía según la proximidad del servidor, la congestión de la red y el protocolo utilizado. Priorizamos la precisión bruta.",
+                faqQ2: "¿Es esta herramienta apta para móviles?",
+                faqA2: "Sí, la arquitectura es totalmente responsiva y está optimizada para pruebas de baja latencia en dispositivos móviles de alto rendimiento."
             },
             en: {
                 start: "Start Test",
@@ -586,7 +667,20 @@
                 termsBody: "This tool is provided \"as is\". We are not responsible for measurement variations caused by local network conditions or hardware limitations.",
                 privacyTitle: "Privacy Policy",
                 privacyBody: "Total Privacy. We do not store, track, or share your speed tests or connection data. All operations happen in your browser.",
-                contactTitle: "Contact Official"
+                contactTitle: "Contact Official",
+                aboutTitle: "Technical Insights: How Speed Test Works",
+                aboutDesc: "Our Speed Test tool provides a high-precision measurement of your network throughput using real-time packet analysis. By downloading a non-cacheable binary payload from high-bandwidth distributed nodes, we calculate the effective bitrate of your connection.",
+                guideTitle: "Quick Usage Guide",
+                guideStep1: "Step 1: Click 'Start Test' to initiate the synchronization handshake.",
+                guideStep2: "Step 2: Wait for the multi-threaded download sequence to stabilize.",
+                guideStep3: "Step 3: Review your peak Mbps and latency results instantly.",
+                privacyTitleTech: "Security & Privacy",
+                privacyBodyTech: "This tool utilizes Client-Side Processing (JavaScript/WASM). All speed calculations are performed directly in your browser. No data is transmitted or stored.",
+                faqTitle: "Frequently Asked Questions",
+                faqQ1: "Why is my speed different from other tests?",
+                faqA1: "Measurement varies based on server proximity, network congestion, and the protocol used. We prioritize raw throughput accuracy.",
+                faqQ2: "Is this tool mobile-friendly?",
+                faqA2: "Yes, the architecture is fully responsive and optimized for low-latency testing on high-performance mobile devices."
             }
         };
 
@@ -624,6 +718,21 @@
             document.getElementById('privacyTitle').innerText = t.privacyTitle;
             document.getElementById('privacyBody').innerText = t.privacyBody;
             document.getElementById('contactTitle').innerText = t.contactTitle;
+
+            // Technical Section
+            document.getElementById('aboutTitle').innerText = t.aboutTitle;
+            document.getElementById('aboutDesc').innerText = t.aboutDesc;
+            document.getElementById('guideTitle').innerText = t.guideTitle;
+            document.getElementById('guideList').children[0].innerHTML = `<span style="color: var(--accent-color); font-weight: bold;">${t.guideStep1.split(':')[0]}:</span> ${t.guideStep1.split(':')[1]}`;
+            document.getElementById('guideList').children[1].innerHTML = `<span style="color: var(--accent-color); font-weight: bold;">${t.guideStep2.split(':')[0]}:</span> ${t.guideStep2.split(':')[1]}`;
+            document.getElementById('guideList').children[2].innerHTML = `<span style="color: var(--accent-color); font-weight: bold;">${t.guideStep3.split(':')[0]}:</span> ${t.guideStep3.split(':')[1]}`;
+            document.getElementById('privacyTitleTech').innerText = t.privacyTitleTech;
+            document.getElementById('privacyBodyTech').innerText = t.privacyBodyTech;
+            document.getElementById('faqTitle').innerText = t.faqTitle;
+            document.getElementById('faqQ1').innerText = t.faqQ1;
+            document.getElementById('faqA1').innerText = t.faqA1;
+            document.getElementById('faqQ2').innerText = t.faqQ2;
+            document.getElementById('faqA2').innerText = t.faqA2;
         }
 
         // Initialize UI
