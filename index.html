@@ -399,9 +399,19 @@
     </style>
 </head>
 
-<body>
+<body style="opacity:0;transition:opacity 0.15s">
 
-    <button id="langToggle" class="lang-toggle" onclick="toggleLanguage()">EN</button>
+    <div id="lang-toggle" onclick="toggleLanguage()"
+        style="position:fixed;bottom:2rem;right:2rem;display:flex;align-items:center;gap:6px;padding:6px 12px;background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:50px;cursor:pointer;backdrop-filter:blur(10px);z-index:1000;transition:all 0.3s;">
+        <span style="font-size:0.75rem;font-weight:700;color:var(--text-primary);">EN</span>
+        <div
+            style="width:36px;height:18px;background:rgba(255,255,255,0.1);border-radius:999px;position:relative;display:flex;align-items:center;padding:0 2px;">
+            <div id="toggle-circle"
+                style="width:14px;height:14px;background:var(--accent-color);border-radius:50%;box-shadow:0 0 8px rgba(6,182,212,0.5);transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);">
+            </div>
+        </div>
+        <span style="font-size:0.75rem;font-weight:700;color:var(--text-primary);">ES</span>
+    </div>
 
     <header>
         <a href="https://optimicrotools.com" class="logo"
@@ -519,10 +529,240 @@
         </section>
     </main>
 
+
+    <!-- Static SEO Content — bilingual -->
+    <div style="max-width:900px;margin:2rem auto;padding:0 1.5rem;">
+        <div
+            style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:1.5rem;padding:2rem;">
+
+            <div id="seo-es">
+                <h2 style="font-size:1.2rem;font-weight:800;color:var(--accent-color);margin-bottom:.75rem;">¿Qué es
+                    SpeedTest Lite y para qué sirve?</h2>
+                <p style="font-size:.85rem;color:var(--text-secondary);line-height:1.8;margin-bottom:1.5rem;"><strong
+                        style="color:var(--text-primary);">SpeedTest Lite</strong> es una herramienta gratuita de
+                    medición de velocidad de internet que corre directamente en tu navegador. Mide tu velocidad de
+                    descarga, latencia (ping) y estado de la conexión — sin instalar nada, sin crear cuenta, con
+                    privacidad total: ningún dato de tu test se almacena ni comparte.</p>
+                <div
+                    style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:1.5rem;">
+                    <div
+                        style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);border-radius:1rem;padding:1rem;">
+                        <h3
+                            style="font-size:.7rem;font-weight:800;text-transform:uppercase;color:var(--accent-color);margin-bottom:.5rem;">
+                            Velocidad de descarga</h3>
+                        <p style="font-size:.75rem;color:var(--text-secondary);line-height:1.6;">Mide cuántos Mbps puede
+                            recibir tu conexión descargando datos de prueba desde servidores públicos.</p>
+                    </div>
+                    <div
+                        style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);border-radius:1rem;padding:1rem;">
+                        <h3
+                            style="font-size:.7rem;font-weight:800;text-transform:uppercase;color:var(--accent-color);margin-bottom:.5rem;">
+                            Latencia (Ping)</h3>
+                        <p style="font-size:.75rem;color:var(--text-secondary);line-height:1.6;">Mide el tiempo de
+                            respuesta de tu conexión en milisegundos. Crítico para videojuegos, videollamadas y VoIP.
+                        </p>
+                    </div>
+                    <div
+                        style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);border-radius:1rem;padding:1rem;">
+                        <h3
+                            style="font-size:.7rem;font-weight:800;text-transform:uppercase;color:var(--accent-color);margin-bottom:.5rem;">
+                            Privacidad total</h3>
+                        <p style="font-size:.75rem;color:var(--text-secondary);line-height:1.6;">Ningún resultado se
+                            almacena ni se envía a servidores propios. El test corre en tu navegador y los datos se
+                            descartan.</p>
+                    </div>
+                </div>
+                <div style="padding-top:1rem;border-top:1px solid rgba(255,255,255,0.05);margin-bottom:1.5rem;">
+                    <h3
+                        style="font-size:.7rem;font-weight:800;text-transform:uppercase;color:var(--accent-color);margin-bottom:1rem;">
+                        Casos de uso frecuentes</h3>
+                    <div
+                        style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:.75rem;font-size:.75rem;color:var(--text-secondary);line-height:1.7;">
+                        <div style="display:flex;gap:.5rem;"><span
+                                style="color:var(--accent-color);font-weight:700;">→</span>
+                            <p><strong style="color:var(--text-primary);">Verificar SLA del ISP:</strong> Comprueba si
+                                tu proveedor está entregando la velocidad contratada.</p>
+                        </div>
+                        <div style="display:flex;gap:.5rem;"><span
+                                style="color:var(--accent-color);font-weight:700;">→</span>
+                            <p><strong style="color:var(--text-primary);">Diagnóstico de red:</strong> Identifica si los
+                                problemas de conexión son del ISP o de tu red local.</p>
+                        </div>
+                        <div style="display:flex;gap:.5rem;"><span
+                                style="color:var(--accent-color);font-weight:700;">→</span>
+                            <p><strong style="color:var(--text-primary);">Gaming y streaming:</strong> Verifica si
+                                tienes suficiente velocidad y latencia baja para juegos online o 4K.</p>
+                        </div>
+                        <div style="display:flex;gap:.5rem;"><span
+                                style="color:var(--accent-color);font-weight:700;">→</span>
+                            <p><strong style="color:var(--text-primary);">Trabajo remoto:</strong> Asegúrate de tener
+                                suficiente ancho de banda para videollamadas y transferencia de archivos.</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="padding-top:1rem;border-top:1px solid rgba(255,255,255,0.05);margin-bottom:1.5rem;">
+                    <h3
+                        style="font-size:.7rem;font-weight:800;text-transform:uppercase;color:var(--accent-color);margin-bottom:1rem;">
+                        Preguntas frecuentes</h3>
+                    <div
+                        style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;font-size:.75rem;">
+                        <div>
+                            <p style="font-weight:700;color:var(--text-primary);margin-bottom:.25rem;">¿Por qué puede
+                                diferir de Speedtest.net?</p>
+                            <p style="color:var(--text-secondary);line-height:1.6;">Usa servidores de prueba distintos y
+                                una metodología más ligera. Los resultados son aproximados y pueden variar.</p>
+                        </div>
+                        <div>
+                            <p style="font-weight:700;color:var(--text-primary);margin-bottom:.25rem;">¿Cuándo debo
+                                hacer el test?</p>
+                            <p style="color:var(--text-secondary);line-height:1.6;">Cierra otras pestañas y aplicaciones
+                                que usen red. Los resultados son más precisos en horas de bajo tráfico.</p>
+                        </div>
+                        <div>
+                            <p style="font-weight:700;color:var(--text-primary);margin-bottom:.25rem;">¿Se guardan mis
+                                resultados?</p>
+                            <p style="color:var(--text-secondary);line-height:1.6;">No. Ningún resultado se almacena
+                                localmente ni se envía a nuestros servidores. Total privacidad.</p>
+                        </div>
+                        <div>
+                            <p style="font-weight:700;color:var(--text-primary);margin-bottom:.25rem;">¿Es completamente
+                                gratuito?</p>
+                            <p style="color:var(--text-secondary);line-height:1.6;">Sí. Sin registro, en <a
+                                    href="https://speed.optimicrotools.com"
+                                    style="color:var(--accent-color);">speed.optimicrotools.com</a>.</p>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    style="padding-top:1rem;border-top:1px solid rgba(255,255,255,0.05);display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;">
+                    <p style="font-size:.75rem;color:var(--text-secondary);opacity:.5;">Parte de <a
+                            href="https://optimicrotools.com" style="color:var(--accent-color);">OptiMicroTools</a> — 9
+                        herramientas gratuitas.</p>
+                    <div style="display:flex;gap:1rem;font-size:.75rem;opacity:.5;"><a
+                            href="https://optimicrotools.com/blog.html" style="color:var(--text-secondary);">Blog
+                            técnico</a><a href="https://myip.optimicrotools.com"
+                            style="color:var(--text-secondary);">Trace Auditor</a><a
+                            href="https://sanitizer.optimicrotools.com"
+                            style="color:var(--text-secondary);">SanitizePro</a></div>
+                </div>
+            </div>
+
+            <div id="seo-en" style="display:none;">
+                <h2 style="font-size:1.2rem;font-weight:800;color:var(--accent-color);margin-bottom:.75rem;">What is
+                    SpeedTest Lite and what is it for?</h2>
+                <p style="font-size:.85rem;color:var(--text-secondary);line-height:1.8;margin-bottom:1.5rem;"><strong
+                        style="color:var(--text-primary);">SpeedTest Lite</strong> is a free internet speed measurement
+                    tool that runs directly in your browser. It measures your download speed, latency (ping) and
+                    connection status — nothing to install, no account needed, total privacy: none of your test data is
+                    stored or shared.</p>
+                <div
+                    style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:1.5rem;">
+                    <div
+                        style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);border-radius:1rem;padding:1rem;">
+                        <h3
+                            style="font-size:.7rem;font-weight:800;text-transform:uppercase;color:var(--accent-color);margin-bottom:.5rem;">
+                            Download speed</h3>
+                        <p style="font-size:.75rem;color:var(--text-secondary);line-height:1.6;">Measures how many Mbps
+                            your connection can receive by downloading test data from public servers.</p>
+                    </div>
+                    <div
+                        style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);border-radius:1rem;padding:1rem;">
+                        <h3
+                            style="font-size:.7rem;font-weight:800;text-transform:uppercase;color:var(--accent-color);margin-bottom:.5rem;">
+                            Latency (Ping)</h3>
+                        <p style="font-size:.75rem;color:var(--text-secondary);line-height:1.6;">Measures your
+                            connection response time in milliseconds. Critical for gaming, video calls and VoIP.</p>
+                    </div>
+                    <div
+                        style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);border-radius:1rem;padding:1rem;">
+                        <h3
+                            style="font-size:.7rem;font-weight:800;text-transform:uppercase;color:var(--accent-color);margin-bottom:.5rem;">
+                            Total privacy</h3>
+                        <p style="font-size:.75rem;color:var(--text-secondary);line-height:1.6;">No results are stored
+                            or sent to our servers. The test runs in your browser and data is discarded.</p>
+                    </div>
+                </div>
+                <div style="padding-top:1rem;border-top:1px solid rgba(255,255,255,0.05);margin-bottom:1.5rem;">
+                    <h3
+                        style="font-size:.7rem;font-weight:800;text-transform:uppercase;color:var(--accent-color);margin-bottom:1rem;">
+                        Common use cases</h3>
+                    <div
+                        style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:.75rem;font-size:.75rem;color:var(--text-secondary);line-height:1.7;">
+                        <div style="display:flex;gap:.5rem;"><span
+                                style="color:var(--accent-color);font-weight:700;">→</span>
+                            <p><strong style="color:var(--text-primary);">Verify ISP SLA:</strong> Check if your
+                                provider is delivering the contracted speed.</p>
+                        </div>
+                        <div style="display:flex;gap:.5rem;"><span
+                                style="color:var(--accent-color);font-weight:700;">→</span>
+                            <p><strong style="color:var(--text-primary);">Network diagnosis:</strong> Identify if
+                                connection problems come from the ISP or local network.</p>
+                        </div>
+                        <div style="display:flex;gap:.5rem;"><span
+                                style="color:var(--accent-color);font-weight:700;">→</span>
+                            <p><strong style="color:var(--text-primary);">Gaming and streaming:</strong> Verify you have
+                                enough speed and low latency for online games or 4K.</p>
+                        </div>
+                        <div style="display:flex;gap:.5rem;"><span
+                                style="color:var(--accent-color);font-weight:700;">→</span>
+                            <p><strong style="color:var(--text-primary);">Remote work:</strong> Ensure sufficient
+                                bandwidth for video calls and file transfers.</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="padding-top:1rem;border-top:1px solid rgba(255,255,255,0.05);margin-bottom:1.5rem;">
+                    <h3
+                        style="font-size:.7rem;font-weight:800;text-transform:uppercase;color:var(--accent-color);margin-bottom:1rem;">
+                        Frequently asked questions</h3>
+                    <div
+                        style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;font-size:.75rem;">
+                        <div>
+                            <p style="font-weight:700;color:var(--text-primary);margin-bottom:.25rem;">Why may results
+                                differ from Speedtest.net?</p>
+                            <p style="color:var(--text-secondary);line-height:1.6;">Uses different test servers and a
+                                lighter methodology. Results are approximate and may vary.</p>
+                        </div>
+                        <div>
+                            <p style="font-weight:700;color:var(--text-primary);margin-bottom:.25rem;">When should I run
+                                the test?</p>
+                            <p style="color:var(--text-secondary);line-height:1.6;">Close other tabs and apps using the
+                                network. Results are more accurate during low traffic hours.</p>
+                        </div>
+                        <div>
+                            <p style="font-weight:700;color:var(--text-primary);margin-bottom:.25rem;">Are my results
+                                saved?</p>
+                            <p style="color:var(--text-secondary);line-height:1.6;">No. No results are stored locally or
+                                sent to our servers. Total privacy.</p>
+                        </div>
+                        <div>
+                            <p style="font-weight:700;color:var(--text-primary);margin-bottom:.25rem;">Is it completely
+                                free?</p>
+                            <p style="color:var(--text-secondary);line-height:1.6;">Yes. No registration, at <a
+                                    href="https://speed.optimicrotools.com"
+                                    style="color:var(--accent-color);">speed.optimicrotools.com</a>.</p>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    style="padding-top:1rem;border-top:1px solid rgba(255,255,255,0.05);display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;">
+                    <p style="font-size:.75rem;color:var(--text-secondary);opacity:.5;">Part of <a
+                            href="https://optimicrotools.com" style="color:var(--accent-color);">OptiMicroTools</a> — 9
+                        free tools.</p>
+                    <div style="display:flex;gap:1rem;font-size:.75rem;opacity:.5;"><a
+                            href="https://optimicrotools.com/blog.html" style="color:var(--text-secondary);">Technical
+                            blog</a><a href="https://myip.optimicrotools.com" style="color:var(--text-secondary);">Trace
+                            Auditor</a><a href="https://sanitizer.optimicrotools.com"
+                            style="color:var(--text-secondary);">SanitizePro</a></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     <footer>
         <div class="footer-links">
-            <a href="#" onclick="openModal(event, 'termsModal')" id="linkTerms">Terms</a>
-            <a href="#" onclick="openModal(event, 'privacyModal')" id="linkPrivacy">Privacy</a>
+            <a href="https://optimicrotools.com/terms.html" id="linkTerms">Terms</a>
+            <a href="https://optimicrotools.com/privacy.html" id="linkPrivacy">Privacy</a>
             <a href="#" onclick="openModal(event, 'contactModal')" id="linkContact">Contact</a>
             <a href="#" onclick="openModal(event, 'supportModal')" class="support-link" id="linkSupport">Support
                 Project</a>
@@ -531,31 +771,7 @@
     </footer>
 
     <!-- Legal Modals -->
-    <div id="termsModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="termsTitle">Terms of Service</h2>
-                <span class="close-modal" onclick="closeModal('termsModal')">&times;</span>
-            </div>
-            <div id="termsBody" style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
-                This tool is provided "as is". We are not responsible for measurement variations caused by local network
-                conditions or hardware limitations.
-            </div>
-        </div>
-    </div>
 
-    <div id="privacyModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="privacyTitle">Privacy Policy</h2>
-                <span class="close-modal" onclick="closeModal('privacyModal')">&times;</span>
-            </div>
-            <div id="privacyBody" style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
-                Total Privacy. We do not store, track, or share your speed tests or connection data. All operations
-                happen in your browser.
-            </div>
-        </div>
-    </div>
 
     <!-- Contact Modal -->
     <div id="contactModal" class="modal">
@@ -569,7 +785,7 @@
                     <span>X (Twitter)</span>
                     <span>𝕏</span>
                 </a>
-                <a href="mailto:jota302@gmail.com" class="support-option">
+                <a href="/cdn-cgi/l/email-protection#7812170c194b484a381f15191114561b1715" class="support-option">
                     <span>Email</span>
                     <span>✉️</span>
                 </a>
@@ -607,6 +823,7 @@
         </div>
     </div>
 
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script>
         // Translations
         const translations = {
@@ -627,10 +844,6 @@
                 linkPrivacy: "Privacidad",
                 linkContact: "Contacto",
                 linkSupport: "Soportar Proyecto",
-                termsTitle: "Términos de Servicio",
-                termsBody: "Esta herramienta se proporciona \"tal cual\". No somos responsables de las variaciones en las mediciones causadas por las condiciones de la red local o las limitaciones del hardware.",
-                privacyTitle: "Política de Privacidad",
-                privacyBody: "Privacidad Total. No almacenamos, rastreamos ni compartimos sus pruebas de velocidad ni sus datos de conexión. Todas las operaciones ocurren en su navegador.",
                 contactTitle: "Contacto Oficial",
                 aboutTitle: "Información Técnica: Cómo Funciona el Test de Velocidad",
                 aboutDesc: "Nuestra herramienta de Test de Velocidad proporciona una medición de alta precisión de su rendimiento de red mediante el análisis de paquetes en tiempo real. Al descargar una carga binaria no almacenable en caché desde nodos distribuidos de alto ancho de banda, calculamos la tasa de bits efectiva de su conexión, teniendo en cuenta el jitter y las fluctuaciones de latencia.",
@@ -663,10 +876,6 @@
                 linkPrivacy: "Privacy",
                 linkContact: "Contact",
                 linkSupport: "Support Project",
-                termsTitle: "Terms of Service",
-                termsBody: "This tool is provided \"as is\". We are not responsible for measurement variations caused by local network conditions or hardware limitations.",
-                privacyTitle: "Privacy Policy",
-                privacyBody: "Total Privacy. We do not store, track, or share your speed tests or connection data. All operations happen in your browser.",
                 contactTitle: "Contact Official",
                 aboutTitle: "Technical Insights: How Speed Test Works",
                 aboutDesc: "Our Speed Test tool provides a high-precision measurement of your network throughput using real-time packet analysis. By downloading a non-cacheable binary payload from high-bandwidth distributed nodes, we calculate the effective bitrate of your connection.",
@@ -684,7 +893,7 @@
             }
         };
 
-        let currentLang = localStorage.getItem('opti_lang') || 'es';
+        let currentLang = localStorage.getItem('lang') || 'es';
         const progressCircle = document.getElementById('progressCircle');
         const speedDisplay = document.getElementById('speedValue');
         const startBtn = document.getElementById('startBtn');
@@ -693,8 +902,7 @@
 
         function toggleLanguage() {
             currentLang = currentLang === 'es' ? 'en' : 'es';
-            localStorage.setItem('opti_lang', currentLang);
-            document.getElementById('langToggle').innerText = currentLang.toUpperCase();
+            localStorage.setItem('lang', currentLang);
             updateUIStrings();
         }
 
@@ -713,10 +921,6 @@
             document.getElementById('linkPrivacy').innerText = t.linkPrivacy;
             document.getElementById('linkContact').innerText = t.linkContact;
             document.getElementById('linkSupport').innerText = t.linkSupport;
-            document.getElementById('termsTitle').innerText = t.termsTitle;
-            document.getElementById('termsBody').innerText = t.termsBody;
-            document.getElementById('privacyTitle').innerText = t.privacyTitle;
-            document.getElementById('privacyBody').innerText = t.privacyBody;
             document.getElementById('contactTitle').innerText = t.contactTitle;
 
             // Technical Section
@@ -733,11 +937,37 @@
             document.getElementById('faqA1').innerText = t.faqA1;
             document.getElementById('faqQ2').innerText = t.faqQ2;
             document.getElementById('faqA2').innerText = t.faqA2;
+
+            // Toggle circle
+            const circle = document.getElementById('toggle-circle');
+            if (circle) circle.style.transform = currentLang === 'es' ? 'translateX(18px)' : 'translateX(0)';
+
+            // SEO block
+            const seoEs = document.getElementById('seo-es');
+            const seoEn = document.getElementById('seo-en');
+            if (seoEs) seoEs.style.display = currentLang === 'es' ? '' : 'none';
+            if (seoEn) seoEn.style.display = currentLang === 'en' ? '' : 'none';
+
+            // Footer links text
+            const lt = document.getElementById('linkTerms');
+            const lp = document.getElementById('linkPrivacy');
+            if (lt) lt.innerText = currentLang === 'es' ? 'Términos' : 'Terms';
+            if (lp) lp.innerText = currentLang === 'es' ? 'Privacidad' : 'Privacy';
+
+            document.body.style.opacity = '1';
         }
 
-        // Initialize UI
-        document.getElementById('langToggle').innerText = currentLang.toUpperCase();
-        updateUIStrings();
+        function initLanguage() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlLang = urlParams.get('lang');
+            const validUrlLang = (urlLang === 'es' || urlLang === 'en') ? urlLang : null;
+            const savedLang = localStorage.getItem('lang');
+            const browserLang = navigator.language.startsWith('es') ? 'es' : 'en';
+            currentLang = validUrlLang || savedLang || browserLang;
+            updateUIStrings();
+        }
+
+        document.addEventListener('DOMContentLoaded', initLanguage);
 
         // UI Helpers
         function setProgress(percent) {
@@ -843,9 +1073,7 @@
         // Close modal on ESC
         window.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
-                document.querySelectorAll('.modal.active').forEach(modal => {
-                    closeModal(modal.id);
-                });
+                document.querySelectorAll('.modal.active').forEach(m => closeModal(m.id));
             }
         });
 
