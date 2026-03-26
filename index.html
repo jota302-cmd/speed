@@ -908,6 +908,7 @@
 
         function updateUIStrings() {
             const t = translations[currentLang];
+            document.documentElement.lang = currentLang;
             startBtn.innerText = t.start;
             document.getElementById('pingLabel').innerText = t.latency;
             document.getElementById('statusLabel').innerText = t.status;
